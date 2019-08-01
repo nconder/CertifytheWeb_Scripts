@@ -1,2 +1,3 @@
-# CertifytheWeb_Scripts
-Scripts that provide pre and post actions for Certify the Web Windows application
+# CertifytheWeb Scripts
+Scripts that provide pre and post actions for automated 'Certify the Web' Windows application.
+https://github.com/webprofusion/certify 
