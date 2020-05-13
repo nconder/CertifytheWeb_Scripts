@@ -8,4 +8,4 @@ $OOSUrl = "ENTER OOS URL"
 
 $certFN = dir cert: -Recurse | Where-Object { $_.Thumbprint -eq "$result.ManagedItem.CertificateThumbprintHash" } | Select-Object FriendlyName
 
-New-OfficeWebAppsFarm -InternalUrl $OOSUrl -ExternalUrl $OOSUrl -CertificateName $results -EditingEnabled -OfficeAddinEnabled -OnlinePictureEnabled -OnlineVideoEnabled -ClipartEnabled -TranslationEnabled -AllowOutboundHttp -ExcelAbortOnRefreshOnOpenFail $true -ExcelAllowExternalData`
+New-OfficeWebAppsFarm -InternalUrl $OOSUrl -ExternalUrl $OOSUrl -CertificateName $results -EditingEnabled -OfficeAddinEnabled -OnlinePictureEnabled -OnlineVideoEnabled -TranslationEnabled -AllowOutboundHttp -OpenFromUrlEnabled -ExcelAbortOnRefreshOnOpenFail $true -ExcelAllowExternalData
