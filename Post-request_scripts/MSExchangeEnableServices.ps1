@@ -13,3 +13,10 @@ Add-PSSnapIn Microsoft.Exchange.Management.PowerShell.E2010
 
 # tell Exchange which services to use this certificate for, force accept certificate to avoid command line prompt
 Enable-ExchangeCertificate -Thumbprint $result.ManagedItem.CertificateThumbprintHash -Services POP, IMAP, SMTP, IIS -Force
+
+# Set TLS cert for client smtp receive connector
+$TLSCert = Get-ExchangeCertificate -Thumbprint $result.ManagedItem.CertificateThumbprintHash
+$TLSCertName = "<I>$($TLSCert.Issuer)<S>$($TLSCert.Subject)"
+Get-ReceiveConnector -Identity "Client Frontend*" | Set-ReceiveConnector -TlsCertificateName $TLSCertName
+# Publish to OWA "POP and IMAP Settings"
+Get-ReceiveConnector -Identity "Client Frontend*" | Set-ReceiveConnector -AdvertiseClientSettings $true
