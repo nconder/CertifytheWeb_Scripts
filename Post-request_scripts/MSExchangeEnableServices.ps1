@@ -17,6 +17,6 @@ Enable-ExchangeCertificate -Thumbprint $result.ManagedItem.CertificateThumbprint
 # Set TLS cert for client smtp receive connector
 $TLSCert = Get-ExchangeCertificate -Thumbprint $result.ManagedItem.CertificateThumbprintHash
 $TLSCertName = "<I>$($TLSCert.Issuer)<S>$($TLSCert.Subject)"
-Get-ReceiveConnector -Identity "Client Frontend*" | Set-ReceiveConnector -TlsCertificateName $TLSCertName
+Get-ReceiveConnector -Identity "'YOURSERVERNAME'\Client Frontend*" | Set-ReceiveConnector -TlsCertificateName $TLSCertName
 # Publish to OWA "POP and IMAP Settings"
-Get-ReceiveConnector -Identity "Client Frontend*" | Set-ReceiveConnector -AdvertiseClientSettings $true
+Get-ReceiveConnector -Identity "'YOURSERVERNAME'\Client Frontend*" | Set-ReceiveConnector -AdvertiseClientSettings $true
